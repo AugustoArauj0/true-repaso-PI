@@ -1,15 +1,15 @@
-import Home from "./views/home/home.component"
-import Create from "./views/Create/create.component"
-import Detail from "./views/Detail/detail.component"
+import Home from "./views/home/home.component.jsx"
+import Create from "./views/create/create.component.jsx"
+import Detail from "./views/detail/detail.component.jsx"
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Home/>
-      <Detail/>
-      <Create/>
+      <Home />
+      <Detail />
+      <Create />
     </div>
   );
 }
