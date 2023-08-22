@@ -1,3 +1,5 @@
+import "./detail.styles.css";
+
 function Detail() {
   return (
     <div>

@@ -1,7 +1,12 @@
+import "./navbar.styles.css";
+
 function Navbar() {
   return (
     <div>
-      <p>Nav Bar</p>
+      <form className="search-box">
+        <input placeholder="Busqueda"/>
+        <button>Buscar</button>
+      </form>
     </div>
   );
 }
