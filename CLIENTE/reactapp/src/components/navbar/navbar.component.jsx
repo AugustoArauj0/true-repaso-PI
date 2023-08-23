@@ -3,10 +3,8 @@ import "./navbar.styles.css";
 function Navbar() {
   return (
     <div>
-      <form className="search-box">
-        <input placeholder="Busqueda"/>
-        <button>Buscar</button>
-      </form>
+      <input placeholder="Type here" className={"search-input"} />
+      <button className={"search-button"}>Search</button>
     </div>
   );
 }

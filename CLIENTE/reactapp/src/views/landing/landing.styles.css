@@ -1,0 +1,19 @@
+.to-home-button {
+  padding: 10px;
+  margin-top: 17%;
+  background: linear-gradient(#225763, #41d8bf) padding-box,
+    linear-gradient(to right, darkblue, darkorchid) border-box;
+  border-radius: 50em;
+  border: 4px solid transparent;
+  color: rgb(6, 240, 181);
+  font-family: "Bigelow Rules";
+  font-size: 200%;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 1px;
+  word-spacing: 4px;
+  text-shadow: 2px 2px 9px rgba(0, 0, 10, 0.8);
+}
+.to-home-button:hover {
+  transform: scale(1.15);
+}

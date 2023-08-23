@@ -1,22 +1,22 @@
 import Navbar from "../../components/navbar/navbar.component";
 import CardList from "../../components/cardList/cardList.component";
 import "./home.styles.css";
-import { useEffect, useState } from "react";
-
-const usersArray = [{name: "Alfa", email: "alfa@gmail.com"}, {name: "Beta", email: "beta@gmail.com"},
- {name: "Gama", email: "gama@gmail.com"}
-];
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "../../redux/actions";
 
 function Home() {
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+  const allUsers = useSelector((state) => state.allUsers);
   useEffect(() => {
-    setUsers(usersArray);
-  },[]);
+    dispatch(getUsers());
+  }, [dispatch, allUsers]);
+
   return (
     <div className="home">
-      <h1 className="home-title">Estas en el Home</h1>
+      <h1 className="home-title">Welcome</h1>
       <Navbar />
-      <CardList allUsers={users}/>
+      <CardList allUsers={allUsers} />
     </div>
   );
 }
