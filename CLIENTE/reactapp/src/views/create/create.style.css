@@ -1,0 +1,34 @@
+.form-cont {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(140, 255, 0);
+  border: solid;
+  padding: 1em;
+  display: inline-block;
+  justify-content: flex-end;
+  margin-bottom: 1em;
+  margin-top: 5em;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 5%;
+}
+.form-button {
+  margin: 2rem;
+  background-color: rgb(17, 205, 243);
+  padding: 10px;
+  margin-top: 17%;
+  border-radius: 50em;
+  border: 4px solid transparent;
+  color: rgb(36, 7, 183);
+  font-family: "Bigelow Rules";
+  font-size: 150%;
+  font-weight: 150;
+  text-transform: none;
+  letter-spacing: 1px;
+  word-spacing: 4px;
+  text-shadow: 2px 2px 9px rgba(0, 0, 10, 0.8);
+}
+.form-button:hover {
+  transform: scale(1.15);
+}

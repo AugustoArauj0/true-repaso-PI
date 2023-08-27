@@ -3,6 +3,7 @@ import "./cardList.styles.css";
 
 function CardList({ allUsers }) {
   const userList = allUsers;
+
   return (
     <div className="card-list">
       {userList?.map((user, index) => (
@@ -11,5 +12,4 @@ function CardList({ allUsers }) {
     </div>
   );
 }
-
 export default CardList;

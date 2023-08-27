@@ -1,0 +1,25 @@
+.searchBar-div-style {
+  align-items: center;
+  display: flex;
+}
+
+.search-input {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 2.2em;
+  background-color: #aef88c;
+}
+
+.search-button {
+  border: 0px;
+  border-radius: 0px 15px 15px 0px;
+  background-color: #41d8bf;
+  height: 2.5em;
+  width: 90px;
+  left: 90px;
+}
+
+.search-button:hover {
+  scale: 1.03;
+  background-color: #06f8d0;
+}
