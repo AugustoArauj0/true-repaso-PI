@@ -2,14 +2,13 @@ const { Op } = require("sequelize");
 const axios = require("axios");
 const { User, Post } = require("../db");
 
-
 // Este controlador crea un usuario en la base de datos
 const createUserDB = async (name, email, phone) => {
   const newUser = await User.create({ name, email, phone });
   return newUser;
 };
 
-// Este controlador trae los datos de usuario de la base de datos 
+// Este controlador trae los datos de usuario de la base de datos
 const getUserDB = async () => {
   const allUsers = await User.findAll({
     // include lo pusimos para traernos el modelo de Post, por si se necesitase traer info de un modelo adicional (opcional)
@@ -48,6 +47,7 @@ const getAllUsers = async (name) => {
     if (filterUsers.length) {
       return filterUsers;
     }
+    throw new Error("No se encontro un usuario con ese nombre");
   } else {
     return allUsers;
   }
@@ -73,7 +73,7 @@ const deleteUser = async (id) => {
 // V1;
 // const getUserDB = async (name) => {
 //   if (name) {
-//     const userByName = await User.findOne({ where: { name } }); 
+//     const userByName = await User.findOne({ where: { name } });
 //     return userByName;
 //   }
 //   const allUsers = await User.findAll();
