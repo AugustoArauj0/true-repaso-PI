@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postUser } from "../../redux/actions/index";
 import "./create.style.css";
 
 function Create() {
+  const dispatch = useDispatch();
+
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -18,7 +22,7 @@ function Create() {
     let error = {};
 
     if (input.name === "" || input.name[0].trim().length === 0) {
-      error.name = "*Type your username here";
+      error.name = "*Fill this entry";
     }
     // eslint-disable-next-line no-useless-escape
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input.email)) {
@@ -48,11 +52,12 @@ function Create() {
     event.preventDefault();
     if (Object.keys(error).length === 0) {
       alert("todo Ok");
+      dispatch(postUser(input));
     } else {
       alert("Faltan datos");
     }
   };
-  // console.log("ESTE ES EL INPUT", input);
+  console.log("ESTE ES EL INPUT", input);
 
   return (
     <div>
@@ -81,11 +86,15 @@ function Create() {
             </p>
           </div>
           {Object.keys(error).length === 0 ? (
-            <button type="submit" className="form-button">
+            <button
+              type="submit"
+              className="form-button"
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           ) : (
-            <button type="submit" className="form-button" disabled>
+            <button type="submit" className="form-button" disabled="true">
               Submit
             </button>
           )}

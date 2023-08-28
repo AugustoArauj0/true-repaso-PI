@@ -13,29 +13,6 @@ body {
   text-align: center;
 }
 
-.home-title {
-  font-size: 45px;
-  text-shadow: -1px -1px #0c0, 1px 1px #060, -3px 0 4px #000;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(9, 114, 235);
-  padding: 12px;
-  font-weight: lighter;
-  -moz-box-shadow: 2px 2px 6px #888;
-  -webkit-box-shadow: 2px 2px 6px #888;
-  box-shadow: 2px 2px 6px #888;
-  text-align: center;
-  display: block;
-  margin: 16px;
-  width: 42%;
-  height: 55px;
-  margin-bottom: 30px;
-  display: inline-block;
-  -webkit-transform: scale(2, 1);
-  -moz-transform: scale(2, 1);
-  -o-transform: scale(2, 1);
-  transform: scale(2, 1);
-}
-
 .home {
   display: flex;
   flex-direction: column;

@@ -32,7 +32,7 @@ const Detail = () => {
           </form>
         </>
       ) : (
-        <h1>Loading character...</h1>
+        <h3>Loading character...</h3>
       )}
     </div>
   );

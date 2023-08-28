@@ -4,14 +4,30 @@ export const GET_USERS = "GET_USERS";
 export const GET_USERS_BY_NAME = "GET_USERS_BY_NAME";
 export const ERROR = "ERROR";
 export const CLEAN_MESSAGE = "CLEAN_MESSAGE";
+export const POST_USER = "POST_USER";
 
-// export function getUsers() {
+export function postUser({ name, email, phone }) {
+  return async function (dispatch) {
+    try {
+      await axios.post("http://localhost:3001/users", { name, email, phone });
+      alert("Usuario creado exitosamente");
+    } catch (error) {
+      return dispatch({
+        type: "ERROR",
+        payload: error.response.data.error,
+      });
+    }
+  };
+}
+
+// export function postHero(state) {
 //   return async function (dispatch) {
-//     const response = await axios("https://jsonplaceholder.typicode.com/users");
-//     return dispatch({
-//       type: "GET_USERS",
-//       payload: response.data,
-//     });
+//     try {
+//       await axios.post("http://localhost:3001/heroes/", state);
+//       alert("Heroe creado exitosamente");
+//     } catch (error) {
+//       alert("El Heroe no se creó, hubo un error");
+//     }
 //   };
 // }
 

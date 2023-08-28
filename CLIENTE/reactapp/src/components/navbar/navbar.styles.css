@@ -2,18 +2,11 @@
   flex-direction: row;
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
-  margin-top: 0.5em;
-  margin-left: auto;
-  margin-right: 1px;
-  border-radius: 3%;
-  padding-left: 40em;
-  padding-right: 410px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  height: 80px;
+  margin-bottom: 20px;
+  padding-left: 645px;
+  padding-right: 390px;
+  height: 70px;
   align-items: center;
-  text-decoration: none;
   gap: 10%;
 
   background: linear-gradient(
@@ -21,4 +14,14 @@
     rgb(141, 241, 9) 0%,
     rgb(253, 6, 146) 100%
   );
+}
+
+#home-label:hover {
+  scale: 1.2;
+}
+#create-label:hover {
+  scale: 1.2;
+}
+#about-label:hover {
+  scale: 1.2;
 }
