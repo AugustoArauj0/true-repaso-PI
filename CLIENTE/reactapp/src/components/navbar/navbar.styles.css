@@ -8,6 +8,7 @@
   height: 70px;
   align-items: center;
   gap: 10%;
+  text-decoration: none;
 
   background: linear-gradient(
     to left,
@@ -18,10 +19,16 @@
 
 #home-label:hover {
   scale: 1.2;
+  text-decoration: none;
+  color: yellow;
 }
 #create-label:hover {
   scale: 1.2;
+  text-decoration: none;
+  color: yellow;
 }
 #about-label:hover {
   scale: 1.2;
+  text-decoration: none;
+  color: yellow;
 }
