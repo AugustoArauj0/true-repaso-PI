@@ -20,16 +20,32 @@ function Create() {
 
   const validate = (input) => {
     let error = {};
+    const regexNombre = /^([a-z0-9]+(\/{1}[a-z0-9]+)*)+(?!([\/]{2}))$/;
 
     if (input.name === "" || input.name[0].trim().length === 0) {
       error.name = "*Fill this entry";
     }
-    // eslint-disable-next-line no-useless-escape
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input.email)) {
-      error.email = "*El mail format is invalid";
+    if (regexNombre.test(input.name)) {
+      error.name = "The name must only contain letters";
     }
-    if (/^[0-9]{0,9}$/.test(input.phone)) {
-      error.phone = "*That phone number is invalid";
+    if (input.name.length < 5 || input.name.length > 9) {
+      error.name =
+        "The username must contain between 5 and 10 characters and start capitalized";
+    }
+
+    // eslint-disable-next-line no-useless-escape
+    if (input.email === "" || input.email[0].trim().length === 0) {
+      error.email = "*Fill this entry";
+    }
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input.email)) {
+      error.email = "*That email format is invalid";
+    }
+
+    if (input.phone.length === 0 || input.name[0].trim().length === 0) {
+      error.phone = "*Fill this entry";
+    }
+    if (!/^[0-9]{0,9}$/.test(input.phone)) {
+      error.phone = "*Max digits for phone is 9 digits";
     }
     return error;
   };
@@ -51,7 +67,6 @@ function Create() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (Object.keys(error).length === 0) {
-      alert("todo Ok");
       dispatch(postUser(input));
     } else {
       alert("Faltan datos");
@@ -75,14 +90,14 @@ function Create() {
             <label>Email: </label>
             <input name="email" value={input.email} onChange={handleChange} />
             <p>
-              <strong>{error.name && error.name}</strong>
+              <strong>{error.email && error.email}</strong>
             </p>
           </div>
           <div>
             <label>Phone: </label>
             <input name="phone" value={input.phone} onChange={handleChange} />
             <p>
-              <strong>{error.name && error.name}</strong>
+              <strong>{error.phone && error.phone}</strong>
             </p>
           </div>
           {Object.keys(error).length === 0 ? (

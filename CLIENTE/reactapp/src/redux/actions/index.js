@@ -12,24 +12,10 @@ export function postUser({ name, email, phone }) {
       await axios.post("http://localhost:3001/users", { name, email, phone });
       alert("Usuario creado exitosamente");
     } catch (error) {
-      return dispatch({
-        type: "ERROR",
-        payload: error.response.data.error,
-      });
+      alert("El usuario no se creo, hubo un error");
     }
   };
 }
-
-// export function postHero(state) {
-//   return async function (dispatch) {
-//     try {
-//       await axios.post("http://localhost:3001/heroes/", state);
-//       alert("Heroe creado exitosamente");
-//     } catch (error) {
-//       alert("El Heroe no se creó, hubo un error");
-//     }
-//   };
-// }
 
 export function getUsers() {
   return async function (dispatch) {
