@@ -35,7 +35,8 @@ const getUserApi = async () => {
   return apiInfoMap;
 };
 
-// Este controlador trae los usuarios creados en la base de datos, y los "10 primeros" usuarios de la API
+/* Este controlador trae los usuarios creados en la base de datos, y los "10 primeros" usuarios de la API, y adicionalmente busca entre estos 
+aquellos cuyo nombre coincida parcial o completamente con lo ingresado en la searchBar */
 const getAllUsers = async (name) => {
   const usersDB = await getUserDB(); //todos los usuarios de la DB
   const usersApi = await getUserApi(); //todos los usuarios de la API
