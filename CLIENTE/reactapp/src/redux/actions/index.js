@@ -58,8 +58,8 @@ export function deleteUserDB(id) {
   return async function (dispatch) {
     try {
       await axios
-        .delete(`http://localhost:3001/users/?name=${id}`)
-        .then(alert(`Deleted post with ID ${id}`));
+        .delete(`http://localhost:3001/users/${id}`)
+        .then(alert(`Deleted user with ID ${id}`));
     } catch (error) {
       alert("There was an error in the deleting process");
     }

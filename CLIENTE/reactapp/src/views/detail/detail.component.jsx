@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteUserDB } from "../../redux/actions/index";
 import axios from "axios";
 import "./detail.styles.css";
 
 const Detail = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
   /*EJEMPLO DE USO DE AXIOS Y DIFERENCIAS CON FETCH()*/
   useEffect(() => {
@@ -13,6 +17,12 @@ const Detail = () => {
       setUser(response.data)
     );
   }, [id]);
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    dispatch(deleteUserDB(id));
+    document.location.href = "/home";
+  };
 
   return (
     <div className="detail-style">
@@ -29,7 +39,24 @@ const Detail = () => {
             <br />
             <br />
             <label>Phone: {user.phone}</label>
+            <br />
+            <br />
+            <label>User ID: {user.id}</label>
           </form>
+          <br />
+          <br />
+          {console.log(typeof id)}
+          {format.test(id) ? (
+            <button
+              className="delete-button"
+              type="button"
+              onClick={handleDelete}
+            >
+              DELETE USER
+            </button>
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         <h3>Loading character...</h3>

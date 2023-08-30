@@ -12,9 +12,16 @@ class About extends React.Component {
         <h1>Welcome!</h1>
         <hr />
         <p>
-          I am Augusto, and this is my proyect, an Web App of Users Management,
-          that i developed with the knowledge adquired in the
-          <a href="https://www.soyhenry.com"> SoyHenry</a> bootcamp.
+          I am Augusto, and this is my proyect, a "Users Management Simulator"
+          based WebApp, that i developed with the knowledge adquired in the
+          <a
+            style={{ color: "aqua", textDecoration: "none", padding: 5 }}
+            href="https://www.soyhenry.com"
+          >
+            {" "}
+            SoyHenry
+          </a>{" "}
+          bootcamp.
         </p>
       </div>
     );

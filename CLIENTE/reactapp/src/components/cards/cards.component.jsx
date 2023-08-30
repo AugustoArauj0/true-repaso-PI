@@ -12,7 +12,8 @@ function Cards({ user }) {
       >
         <h2>{name}</h2>
         <p>{email}</p>
-        <p>Phone: {phone}</p>
+        <p>{phone}</p>
+        <p>ID: {id}</p>
       </Link>
     </div>
   );
