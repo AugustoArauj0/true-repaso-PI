@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 
 import "./App.css";
 
+// La app contiene el acceso a todos los demas componentes gracias a estar "abrazada" por el Browser Router.
 function App() {
   const location = useLocation();
   return (
