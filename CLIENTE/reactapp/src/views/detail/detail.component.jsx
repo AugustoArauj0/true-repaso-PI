@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { deleteUserDB } from "../../redux/actions/index";
 import axios from "axios";
 import "./detail.styles.css";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -47,13 +48,24 @@ const Detail = () => {
           <br />
           {console.log(typeof id)}
           {format.test(id) ? (
-            <button
-              className="delete-button"
-              type="button"
-              onClick={handleDelete}
-            >
-              DELETE USER
-            </button>
+            <div>
+              <button
+                className="delete-button"
+                type="button"
+                onClick={handleDelete}
+              >
+                DELETE USER DATA
+              </button>
+              <button className="update-button">
+                <Link
+                  to={`/update/${id}`}
+                  onClick={() => (window.location.href = `/update/${id}`)}
+                  style={{ textDecoration: "none", color: "aqua" }}
+                >
+                  MODIFY USER DATA
+                </Link>
+              </button>
+            </div>
           ) : (
             <></>
           )}

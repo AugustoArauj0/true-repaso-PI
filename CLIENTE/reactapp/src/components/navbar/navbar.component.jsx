@@ -2,6 +2,10 @@ import "./navbar.styles.css";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/searchBar.component";
 
+/* Este componente retorna la barra de navegacion situada en la cabecera de la pagina, sirviendo esta como el medio 
+principal del usuario para navegar entre las distintas rutas de cada vista (Home, Create y About). Los handle que se le 
+pasan por parametro de parte del componente "padre" Home tienen como destinacion final al componente searchBar, el 
+"ultimo hijo" */
 export const Navbar = ({ handleChange, handleSubmit }) => {
   return (
     <div className="navbar-style">

@@ -9,7 +9,7 @@
   flex-direction: column;
   text-shadow: -1px -1px rgb(0, 0, 0), 1px 1px rgb(0, 0, 0), -3px 0 4px #000;
   font-family: Arial, Helvetica, sans-serif;
-  color: greenyellow;
+  color: rgb(0, 250, 12);
   border: solid;
   border-width: 3px;
 
@@ -56,6 +56,33 @@
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
-.disabled-button {
-  display: none;
+
+.update-button {
+  margin-top: 15px;
+  border: 3%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: aqua;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgb(12, 9, 209);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+.update-button:hover {
+  background-color: rgb(9, 97, 230);
+  scale: 1.15;
+}
+.update-button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }

@@ -6,6 +6,7 @@ import Detail from "./views/detail/detail.component";
 import Create from "./views/create/create.component";
 import Navbar from "./components/navbar/navbar.component";
 import About from "./views/about/about.component";
+import Update from "./views/update/update.component";
 import { useLocation } from "react-router-dom";
 
 import "./App.css";
@@ -18,6 +19,7 @@ function App() {
         <Navbar />
       ) : null}
       <Switch>
+        <Route path={"/update/:id"} component={Update} />
         <Route path={"/about"} component={About} />
         <Route exact path={"/"} component={Landing} />
         <Route exact path={"/home"} component={Home} />

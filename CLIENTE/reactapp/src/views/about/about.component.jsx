@@ -9,15 +9,13 @@ class About extends React.Component {
     return (
       <div className={"contenedorAbout"}>
         <br />
-        <h1>Welcome!</h1>
+        <h1 id={"about-title"}>Welcome!</h1>
         <hr />
         <p>
           I am Augusto, and this is my proyect, a "Users Management Simulator"
-          based WebApp, that i developed with the knowledge adquired in the
-          <a
-            style={{ color: "aqua", textDecoration: "none", padding: 5 }}
-            href="https://www.soyhenry.com"
-          >
+          based Web App with all the CRUD functionalities integrated, developed
+          with the knowledge adquired in the
+          <a className={"henry-link"} href="https://www.soyhenry.com">
             {" "}
             SoyHenry
           </a>{" "}

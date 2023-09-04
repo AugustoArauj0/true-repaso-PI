@@ -1,4 +1,4 @@
-import { GET_USERS, GET_USERS_BY_NAME, ERROR, CLEAN_MESSAGE } from "../actions";
+import { GET_USERS, GET_USERS_BY_NAME, ERROR, CLEAN_MESSAGE, POST_USER, UPDATE_USER } from "../actions";
 
 let initialState = { allUsers: [], copyUsers: [], message: "" };
 
@@ -25,6 +25,18 @@ function rootReducer(state = initialState, action) {
         ...state,
         message: "",
       };
+    case POST_USER:
+      return {
+        ...state,
+        allUsers: [...state.allUsers, action.payload],
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+        allUsers: [...state.allUsers, action.payload],
+      }
+    // case DELETE_USER:
+    //   return state.filter((user) => user.id !== action.payload);
     default:
       return state;
   }

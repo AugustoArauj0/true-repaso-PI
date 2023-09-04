@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { postUser } from "../../redux/actions/index";
-import "./create.style.css";
+import { updateUserDB } from "../../redux/actions/index";
+import axios from "axios";
+import "./update.styles.css";
+import { useParams } from "react-router-dom";
 
-function Create() {
+function Update() {
   const dispatch = useDispatch();
+  const { id } = useParams();
+  console.log("ID: ", id);
 
   const [input, setInput] = useState({
+    id: id,
     name: "",
     email: "",
     phone: "",
@@ -19,6 +24,7 @@ function Create() {
   });
 
   const validate = (input) => {
+    input = input || " ";
     let error = {};
     const regexNombre = /^([a-z0-9]+(\/{1}[a-z0-9]+)*)+(?!([\/]{2}))$/;
 
@@ -55,7 +61,6 @@ function Create() {
       ...input,
       [event.target.name]: event.target.value,
     });
-
     setError(
       validate({
         ...input,
@@ -64,37 +69,38 @@ function Create() {
     );
   };
 
-  const handleSubmit = (event) => {
+  const handleUpdate = (event) => {
     event.preventDefault();
     if (Object.keys(error).length === 0) {
-      dispatch(postUser(input));
+      console.log("ID E INPUT: ", id, " / ", input);
+      dispatch(updateUserDB(id, input));
       document.location.href = "/home";
     } else {
-      alert("Faltan datos");
+      alert("Complete all fields please");
     }
   };
 
   return (
     <div>
-      <div className="form-cont">
-        <h1>CREATE USER</h1>
-        <form onSubmit={handleSubmit} className="form-style">
+      <div className="update-form-cont">
+        <h1>UPDATE USER</h1>
+        <form onSubmit={handleUpdate} className="form-style">
           <div>
-            <label>Name: </label>
+            <label>New Name: </label>
             <input name="name" value={input.name} onChange={handleChange} />
             <p>
               <strong>{error.name && error.name}</strong>
             </p>
           </div>
           <div>
-            <label>Email: </label>
+            <label>New Email: </label>
             <input name="email" value={input.email} onChange={handleChange} />
             <p>
               <strong>{error.email && error.email}</strong>
             </p>
           </div>
           <div>
-            <label>Phone: </label>
+            <label>New Phone: </label>
             <input name="phone" value={input.phone} onChange={handleChange} />
             <p>
               <strong>{error.phone && error.phone}</strong>
@@ -103,14 +109,18 @@ function Create() {
           {Object.keys(error).length === 0 ? (
             <button
               type="submit"
-              className="form-button"
-              onClick={handleSubmit}
+              className="update-form-button"
+              onClick={handleUpdate}
             >
-              Submit
+              Update
             </button>
           ) : (
-            <button type="submit" className="form-button" disabled="true">
-              Submit
+            <button
+              type="submit"
+              className="update-form-button"
+              disabled="true"
+            >
+              Update
             </button>
           )}
         </form>
@@ -119,4 +129,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default Update;

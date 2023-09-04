@@ -1,8 +1,8 @@
-.form-cont {
+.update-form-cont {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(140, 255, 0);
+  background-color: rgb(255, 83, 4);
   border: solid;
   padding: 1em;
   display: inline-block;
@@ -13,8 +13,9 @@
   padding-right: 10%;
   border-radius: 5%;
   color: blue;
+  font-size: large;
 }
-.form-button {
+.update-form-button {
   margin: 2rem;
   background-color: rgb(17, 205, 243);
   padding: 5px;
@@ -30,6 +31,6 @@
   word-spacing: 4px;
   text-shadow: 2px 2px 9px rgba(0, 0, 10, 0.8);
 }
-.form-button:hover {
+.update-form-button:hover {
   transform: scale(1.15);
 }
