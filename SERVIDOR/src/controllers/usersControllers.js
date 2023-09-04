@@ -71,6 +71,20 @@ const deleteUser = async (id) => {
   await User.destroy({ where: { id } });
 };
 
+/* Este controlador ACTUALIZARA al usuario correspondiende al ID pasado por parametro, empleando los datos de este 
+tambien pasados por parametro */
+const updateUserDB = async (id, name, email, phone) => {
+  const userId = id;
+  const updatedUser = await User.findByPk(userId);
+  updatedUser.set({
+    name: name,
+    email: email,
+    phone: phone,
+  })
+  await updatedUser.save();
+  return updatedUser;
+};
+
 // V1;
 // const getUserDB = async (name) => {
 //   if (name) {
@@ -110,4 +124,5 @@ module.exports = {
   deleteUser,
   getAllUsers,
   getUserById,
+  updateUserDB,
 };
