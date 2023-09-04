@@ -8,7 +8,7 @@ const createUserDB = async (name, email, phone) => {
   return newUser;
 };
 
-// Este controlador trae los datos de usuario de la base de datos
+// Este controlador trae los datos de usuario que se encuentran en la base de datos (creados desde la pagina)
 const getUserDB = async () => {
   const allUsers = await User.findAll({
     // include lo pusimos para traernos el modelo de Post, por si se necesitase traer info de un modelo adicional (opcional)
