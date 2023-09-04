@@ -3,7 +3,6 @@ import axios from "axios";
 export const GET_USERS = "GET_USERS";
 export const GET_USERS_BY_NAME = "GET_USERS_BY_NAME";
 export const ERROR = "ERROR";
-export const CLEAN_MESSAGE = "CLEAN_MESSAGE";
 export const POST_USER = "POST_USER";
 export const UPDATE_USER = "UPDATE_USER";
 // export const DELETE_USER = "DELETE_USER";
@@ -49,14 +48,6 @@ export function getUsersByName(name) {
         payload: error.response.data.error,
       });
     }
-  };
-}
-
-export function clearMessage() {
-  return function (dispatch) {
-    return dispatch({
-      type: "CLEAN_MESSAGE",
-    });
   };
 }
 
