@@ -72,7 +72,6 @@ function Update() {
   const handleUpdate = (event) => {
     event.preventDefault();
     if (Object.keys(error).length === 0) {
-      console.log("ID E INPUT: ", id, " / ", input);
       dispatch(updateUserDB(id, input));
       document.location.href = "/home";
     } else {
