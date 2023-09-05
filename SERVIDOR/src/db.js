@@ -6,11 +6,18 @@ const PostModel = require("./models/Post");
 require("dotenv").config();
 
 // Obtenemos las variables del .env
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_DIALECT } = 
+const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_DIALECT, DB_DEPLOY } =
   process.env;
 
+// const sequelize = new Sequelize(
+//   `${DB_DIALECT}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+//   {
+//     logging: false,
+//   }
+// );
+
 const sequelize = new Sequelize(
-  `${DB_DIALECT}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+  DB_DEPLOY,
   {
     logging: false,
   }
@@ -26,11 +33,11 @@ const { User, Post } = sequelize.models;
 
 //un usuario tiene muchos posts
 User.hasMany(Post, {
-  
+
   /* la opción ON DELETE CASCADE para especificar si desea eliminar filas en una tabla secundaria 
   cuando se eliminan las filas correspondientes en la tabla principal. Esto lo hacemos para borrar los posts del 
   usuario eliminado */
-  onDelete: "CASCADE", 
+  onDelete: "CASCADE",
   onUpdate: "CASCADE",
 });
 
@@ -38,6 +45,6 @@ User.hasMany(Post, {
 Post.belongsTo(User);
 
 module.exports = {
-    ...sequelize.models,
-    conn: sequelize,
+  ...sequelize.models,
+  conn: sequelize,
 };
