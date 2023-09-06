@@ -11,7 +11,7 @@ export const UPDATE_USER = "UPDATE_USER";
 export function postUser({ name, email, phone }) {
   return async function (dispatch) {
     try {
-      await axios.post("http://localhost:3001/users", { name, email, phone });
+      await axios.post("/users", { name, email, phone });
       alert("Usuario creado exitosamente");
       return dispatch({
         type: "POST_USER",
@@ -25,7 +25,7 @@ export function postUser({ name, email, phone }) {
 export function getUsers() {
   return async function (dispatch) {
     try {
-      const response = await axios("http://localhost:3001/users");
+      const response = await axios("/users");
       return dispatch({
         type: "GET_USERS",
         payload: response.data,
@@ -37,7 +37,7 @@ export function getUsers() {
 export function getUsersByName(name) {
   return async function (dispatch) {
     try {
-      const response = await axios(`http://localhost:3001/users/?name=${name}`);
+      const response = await axios(`/users/?name=${name}`);
       return dispatch({
         type: "GET_USERS_BY_NAME",
         payload: response.data,
@@ -55,7 +55,7 @@ export function deleteUserDB(id) {
   return async function (dispatch) {
     try {
       await axios
-        .delete(`http://localhost:3001/users/${id}`)
+        .delete(`/users/${id}`)
         .then(alert(`Deleted user with ID ${id}`));
       // return dispatch({
       //   type: "DELETE_USER",
@@ -72,7 +72,7 @@ export function updateUserDB(id, input) {
     const { name, email, phone } = input;
     try {
       await axios
-        .patch(`http://localhost:3001/users/${id}`, { name: name, email: email, phone: phone })
+        .patch(`/users/${id}`, { name: name, email: email, phone: phone })
         .then(alert(`Updated data of user with ID ${id}`));
       return dispatch({
         type: "UPDATE_USER",
