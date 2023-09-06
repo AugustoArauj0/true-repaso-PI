@@ -1,4 +1,4 @@
-const { Op } = require("sequelize");
+// const { Op } = require("sequelize");
 const axios = require("axios");
 const { User, Post } = require("../db");
 
